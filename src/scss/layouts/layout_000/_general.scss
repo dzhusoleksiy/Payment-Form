@@ -1,14 +1,28 @@
-html {
-  @include getCssVar(font-size);
-}
-
-body {
-  @include getCssVar(font-family);
-  font-size: 1rem;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 12px;
+.credit-card {
+  width: 600px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+  color: white;
+  background-image: url(../i/piggie.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  & fieldset {
+    border: none;
+  }
+  & input {
+    background-color: white;
+  }
+  & .brand-names {
+    display: flex;
+    & .bank-name {
+      margin-right: auto;
+      align-self: center;
+    } 
+    & img {
+      width: 40px;
+      height: 30px;
+    }
+  } 
 }
