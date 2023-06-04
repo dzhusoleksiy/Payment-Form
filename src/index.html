@@ -11,11 +11,16 @@
 
     <form class="credit-card">
       <div class="front-side">
-        <div class="brand-names">
-          <div class="bank-name">WDS Bank</div>
-          <img data-logo src="i/svg/visa.svg" class="logo">
+        <div class="bank-name"><p>monobank</p></div>
+        <div class="chip-nfc">
+          <div class="card-chip">
+            <img data-logo src="i/chip.png" class="logo">
+          </div>
+          <div class="card-nfc">
+            <img data-logo src="i/svg/nfc.svg" class="logo">
+          </div>
         </div>
-        <fieldset class="form-section">
+        <fieldset class="card-number-fieldset">
           <legend>Card Number</legend>
           <label for="card-number">Card Number</label>
           <div data-connected-inputs class="card-number-inputs horizontal-input-row">
@@ -25,34 +30,36 @@
             <input type="tel" maxlength="4" aria-label="Last 4 Digits of Credit Card" required pattern="[0-9]{4}" />
           </div>
         </fieldset>
-        <div class="horizontal-input-row">
-          <div class="form-section name-group">
+        <fieldset class="expiration-fieldset">
+          <legend>Expiration</legend>
+          <label for="expiration-month">Expiration</label>
+          <div class="horizontal-input-row">
+            <select id="expiration-month" aria-label="Expiration Month" required>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+            <select id="expiration-year" aria-label="Expiration Year" required data-expiration-year></select>
+          </div>
+        </fieldset>
+        <div class="name-brand">
+          <div class="name-form">
             <label for="name">Name</label>
             <input type="text" id="name" required>
           </div>
-          <fieldset class="form-section">
-            <legend>Expiration</legend>
-            <label for="expiration-month">Expiration</label>
-            <div class="horizontal-input-row">
-              <select id="expiration-month" aria-label="Expiration Month" required>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-                <option>05</option>
-                <option>06</option>
-                <option>07</option>
-                <option>08</option>
-                <option>09</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-              </select>
-              <select id="expiration-year" aria-label="Expiration Year" required data-expiration-year></select>
-            </div>
-          </fieldset>
+          <div class="card-image">
+            <img data-logo src="i/svg/visa.svg" class="logo">
+          </div>
         </div>
-      </div>
       <div class="back-side">
         <div class="stripe"></div>
         <div class="form-section cvc-group">

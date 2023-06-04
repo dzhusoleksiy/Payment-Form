@@ -1,28 +1,107 @@
 .credit-card {
-  width: 600px;
+  width: 599px;
+  height: 377px;
+  border-radius: 25px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  padding: 35px;
   font-size: 24px;
   color: white;
-  background-image: url(../i/piggie.jpg);
+  background-image: linear-gradient(to bottom right, rgb(85, 84, 84), black);
   background-repeat: no-repeat;
   background-size: cover;
   & fieldset {
     border: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  & legend {
+    display: none;
+  }
+  & select {
+    background-color: white;
+    padding: 2px;
+    border-radius: 5px;
   }
   & input {
     background-color: white;
+    padding: 3px;
+    border-radius: 5px;
   }
-  & .brand-names {
-    display: flex;
-    & .bank-name {
-      margin-right: auto;
-      align-self: center;
-    } 
-    & img {
-      width: 40px;
-      height: 30px;
+  & label {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: -200vh;
+  }
+  & .bank-name {
+    & p {
+      margin: 0;
+      display: inline-block;
+    }
+    &::after {
+      content: " | Universal Bank";
     }
   } 
+  & .chip-nfc {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  & .card-chip {
+    & img {
+      width: 70px;
+      vertical-align: middle;
+    }
+  }
+  & .card-nfc {
+    & img {
+      width: 35px;
+      vertical-align: middle;
+    }
+  }
+  & .card-number-fieldset {
+    justify-content: center;
+  }
+  & .card-number-inputs {
+    margin-top: 15px;
+    & input {
+      font-size: 32px;
+      max-width: 115px;
+      margin-right: 15px;
+      text-align: center; 
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+  & .expiration-fieldset {
+    margin-top: 20px;
+    margin-left: 265px;
+    & select {
+      font-size: 22px;
+    }
+  }
+  & .name-brand {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  & .name-form {
+    & input {
+      font-size: 22px;
+      width: 220px;
+      text-align: center; 
+    }
+  }
+  & .card-image {
+    width: 90px;
+  }
+  & .back-side {
+    display: none;
+  }
 }
