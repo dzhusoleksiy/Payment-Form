@@ -55,6 +55,7 @@ document.addEventListener("keydown", e => {
     case "Backspace": {
       if (input.selectionStart === 0 && input.selectionEnd === 0) {
         const prev = input.previousElementSibling
+        if (!prev) return
         prev.value = prev.value.substring(0, prev.value.length - 1)
         prev.focus()
         prev.selectionStart = prev.value.length
@@ -95,9 +96,9 @@ function onInputChange(input, newValue) {
     .querySelector("input").value
 
   if (firstFour.startsWith("4")) {
-    logo.src = "visa.svg"
+    document.getElementById(`card-logo`).src = "i/svg/visa.svg"
   } else if (firstFour.startsWith("5")) {
-    logo.src = "mastercard.svg"
+    document.getElementById(`card-logo`).src = "i/svg/mastercard.svg"
   }
 }
 
@@ -133,3 +134,16 @@ function isConnectedInput(input) {
   return input.matches("input") && parent != null
 }
 
+const card = document.querySelector('.credit-card')
+const but = document.getElementById(`but`)
+function testswap () {
+  if (!card.style.transform || card.style.transform == 'rotateY(0deg)') {
+    card.style.transform = 'rotateY(-180deg)';
+    but.style.transform = 'rotate(-180deg)';
+  }
+  else {
+    card.style.transform = 'rotateY(0deg)';
+    but.style.transform = 'rotate(0)';
+  } 
+}
+but.onclick = testswap;

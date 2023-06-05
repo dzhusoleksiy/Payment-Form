@@ -6,69 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/3b15a9f7b1.js" crossorigin="anonymous"></script>
   </head>
   <body>
-
-    <form class="credit-card">
-      <div class="front-side">
-        <div class="bank-name"><p>monobank</p></div>
-        <div class="chip-nfc">
-          <div class="card-chip">
-            <img data-logo src="i/chip.png" class="logo">
+    <div class="wrapper">
+      <div class="outer-circle"></div>
+      <div class="circle"></div>
+      <div class="card-wrapper"> 
+        <form class="credit-card">
+          <div class="front-side">
+            <div class="bank-name"><p>multibank</p></div>
+            <div class="chip-nfc">
+              <div class="card-chip">
+                <img data-logo src="i/chip.png" class="logo">
+              </div>
+              <div class="card-nfc">
+                <img data-logo src="i/svg/nfc.svg" class="logo">
+              </div>
+            </div>
+            <fieldset class="card-number-fieldset">
+              <legend>Card Number</legend>
+              <label for="card-number">Card Number</label>
+              <div data-connected-inputs class="card-number-inputs horizontal-input-row">
+                <input type="tel" maxlength="4" aria-label="First 4 Digits of Credit Card" id="card-number" required pattern="[0-9]{4}" />
+                <input type="tel" maxlength="4" aria-label="Second 4 Digits of Credit Card" required pattern="[0-9]{4}" />
+                <input type="tel" maxlength="4" aria-label="Third 4 Digits of Credit Card" required pattern="[0-9]{4}" />
+                <input type="tel" maxlength="4" aria-label="Last 4 Digits of Credit Card" required pattern="[0-9]{4}" />
+              </div>
+            </fieldset>
+            <fieldset class="expiration-fieldset">
+              <legend>Expiration</legend>
+              <label for="expiration-month">Expiration</label>
+              <div class="horizontal-input-row">
+                <select id="expiration-month" aria-label="Expiration Month" required>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+                <select id="expiration-year" aria-label="Expiration Year" required data-expiration-year></select>
+              </div>
+            </fieldset>
+            <div class="name-brand">
+              <div class="name-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+              </div>
+              <div class="card-image">
+                <img data-logo id="card-logo" class="logo">
+              </div>
+            </div>
           </div>
-          <div class="card-nfc">
-            <img data-logo src="i/svg/nfc.svg" class="logo">
+          <div class="back-side">
+            <div class="stripe"></div>
+            <div class="cvc-div">
+              <label for="cvc">CVC</label>
+              <input class="cvc-input" type="tel" maxlength="3" id="cvc" required />
+            </div>
           </div>
-        </div>
-        <fieldset class="card-number-fieldset">
-          <legend>Card Number</legend>
-          <label for="card-number">Card Number</label>
-          <div data-connected-inputs class="card-number-inputs horizontal-input-row">
-            <input type="tel" maxlength="4" aria-label="First 4 Digits of Credit Card" id="card-number" required pattern="[0-9]{4}" />
-            <input type="tel" maxlength="4" aria-label="Second 4 Digits of Credit Card" required pattern="[0-9]{4}" />
-            <input type="tel" maxlength="4" aria-label="Third 4 Digits of Credit Card" required pattern="[0-9]{4}" />
-            <input type="tel" maxlength="4" aria-label="Last 4 Digits of Credit Card" required pattern="[0-9]{4}" />
-          </div>
-        </fieldset>
-        <fieldset class="expiration-fieldset">
-          <legend>Expiration</legend>
-          <label for="expiration-month">Expiration</label>
-          <div class="horizontal-input-row">
-            <select id="expiration-month" aria-label="Expiration Month" required>
-              <option>01</option>
-              <option>02</option>
-              <option>03</option>
-              <option>04</option>
-              <option>05</option>
-              <option>06</option>
-              <option>07</option>
-              <option>08</option>
-              <option>09</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-            </select>
-            <select id="expiration-year" aria-label="Expiration Year" required data-expiration-year></select>
-          </div>
-        </fieldset>
-        <div class="name-brand">
-          <div class="name-form">
-            <label for="name">Name</label>
-            <input type="text" id="name" required>
-          </div>
-          <div class="card-image">
-            <img data-logo src="i/svg/visa.svg" class="logo">
-          </div>
-        </div>
-      <div class="back-side">
-        <div class="stripe"></div>
-        <div class="form-section cvc-group">
-          <label for="cvc">CVC</label>
-          <input class="cvc-input" type="tel" maxlength="3" id="cvc" required />
-        </div>
+        </form>
+        <button id="but" class="but" type="button"><i class="fa-solid fa-arrow-right"></i></button>
+        <button id="sub" class="sub" type="submit"><p>Pay Your Bils</p></button>
       </div>
-    </form>
-
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>
