@@ -42,6 +42,24 @@ body {
   margin-right: auto;
   perspective: 1000px;
 }
+.sub {
+  position: absolute;
+  cursor: pointer;
+  top: 140%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 316.83px;
+  height: 82px;
+  & p {
+    font-size: 42px;
+    padding: 20px 30px;
+    border-radius: 15px;
+    background-color: #59cf57;
+    color: #faead3;
+    margin: 0;
+    display: block;
+  }
+}
 .but {
   transition: transform 0.4s linear;
   position: absolute;
