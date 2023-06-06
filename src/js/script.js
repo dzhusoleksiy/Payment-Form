@@ -2,7 +2,7 @@ const expirationSelect = document.querySelector("[data-expiration-year]")
 const logo = document.querySelector("[data-logo]")
 
 const currentYear = new Date().getFullYear()
-for (let i = currentYear; i < currentYear + 10; i++) {
+for (let i = currentYear; i < currentYear + 8; i++) {
   const option = document.createElement("option")
   option.value = i
   option.innerText = i
@@ -133,6 +133,16 @@ function isConnectedInput(input) {
   const parent = input.closest("[data-connected-inputs]")
   return input.matches("input") && parent != null
 }
+
+document.getElementById(`name`).addEventListener("keydown", e => {
+  const key = e.key
+
+  switch (key) {
+    case "Tab": {
+      testswap();
+    }
+  }
+})
 
 const card = document.querySelector('.credit-card')
 const but = document.getElementById(`but`)

@@ -13,7 +13,7 @@
       <div class="outer-circle"></div>
       <div class="circle"></div>
       <div class="card-wrapper"> 
-        <form class="credit-card">
+        <form class="credit-card" id="credit-card">
           <div class="front-side">
             <div class="bank-name"><p>multibank</p></div>
             <div class="chip-nfc">
@@ -28,7 +28,7 @@
               <legend>Card Number</legend>
               <label for="card-number">Card Number</label>
               <div data-connected-inputs class="card-number-inputs horizontal-input-row">
-                <input type="tel" maxlength="4" aria-label="First 4 Digits of Credit Card" id="card-number" required pattern="[0-9]{4}" />
+                <input type="tel" maxlength="4" aria-label="First 4 Digits of Credit Card" id="card-number" required pattern="[0-9]{4}"/>
                 <input type="tel" maxlength="4" aria-label="Second 4 Digits of Credit Card" required pattern="[0-9]{4}" />
                 <input type="tel" maxlength="4" aria-label="Third 4 Digits of Credit Card" required pattern="[0-9]{4}" />
                 <input type="tel" maxlength="4" aria-label="Last 4 Digits of Credit Card" required pattern="[0-9]{4}" />
@@ -68,13 +68,13 @@
           <div class="back-side">
             <div class="stripe"></div>
             <div class="cvc-div">
-              <label for="cvc">CVC</label>
-              <input class="cvc-input" type="tel" maxlength="3" id="cvc" required />
+              <label id="cvc" for="cvc">CVC</label>
+              <input class="cvc-input" type="tel" maxlength="3" required />
             </div>
           </div>
         </form>
         <button id="but" class="but" type="button"><i class="fa-solid fa-arrow-right"></i></button>
-        <button id="sub" class="sub" type="submit"><p>Pay Your Bills</p></button>
+        <button id="sub" class="sub" form="credit-card" type="submit"><p>Pay Your Bills</p></button>
       </div>
     </div>
     <script src="js/script.js"></script>
