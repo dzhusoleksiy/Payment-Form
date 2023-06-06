@@ -50,14 +50,23 @@ body {
   transform: translate(-50%, -50%);
   width: 316.83px;
   height: 82px;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #59cf57;
+  border: none;
+  outline: none;
+  box-shadow: 0 9px #999;
   & p {
     font-size: 42px;
     padding: 20px 30px;
-    border-radius: 15px;
     background-color: #59cf57;
     color: #faead3;
     margin: 0;
     display: block;
+  }
+  &:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px) translate(-50%, -50%);
   }
 }
 .but {
@@ -113,6 +122,10 @@ body {
     padding: 2px;
     border-radius: 5px;
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    border: none;
+    &:focus {
+      outline: none;
+    }
   }
   & input {
     color: white;
