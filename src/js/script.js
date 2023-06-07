@@ -134,6 +134,10 @@ function isConnectedInput(input) {
   return input.matches("input") && parent != null
 }
 
+addEventListener("load", () => {
+  document.getElementById(`first-of-con`).focus();
+});
+
 document.getElementById(`name`).addEventListener("keydown", e => {
   const key = e.key
 
@@ -146,6 +150,7 @@ document.getElementById(`name`).addEventListener("keydown", e => {
 
 const card = document.querySelector('.credit-card')
 const but = document.getElementById(`but`)
+const sub = document.getElementById(`sub`)
 function testswap () {
   if (!card.style.transform || card.style.transform == 'rotateY(0deg)') {
     card.style.transform = 'rotateY(-180deg)';
@@ -157,3 +162,23 @@ function testswap () {
   } 
 }
 but.onclick = testswap;
+
+function testinp () {
+  if (
+    document.getElementById(`first-of-con`).value.length == 4 &&
+    document.getElementById(`second-of-con`).value.length == 4 &&
+    document.getElementById(`third-of-con`).value.length == 4 &&
+    document.getElementById(`fourth-of-con`).value.length == 4 &&
+    document.getElementById(`name`).value.length > 0
+  ) {
+    if(document.getElementById(`cvc`).value.length !== 3) {
+      card.style.transform = 'rotateY(-180deg)';
+      but.style.transform = 'rotate(-180deg)';
+    }
+  } else {
+    card.style.transform = 'rotateY(0deg)';
+    but.style.transform = 'rotate(0)';
+  }
+}
+
+sub.onclick = testinp;
