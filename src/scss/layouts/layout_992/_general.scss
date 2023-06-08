@@ -1,0 +1,15 @@
+.wrapper {
+    & .rotate-button {
+      margin-top: -130px;
+      margin-left: 665px;
+    }
+    & .submit-button {
+      top: 137%;
+      left: 50%;
+      box-shadow: 0 9px #999;
+      &:active {
+        box-shadow: 0 5px #666;
+        transform: translateY(4px) translate(-50%, -50%);
+      }
+    }
+}

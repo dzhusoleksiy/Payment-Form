@@ -7,244 +7,238 @@ body {
   user-select: none;
 }
 .wrapper {
-  width: 900px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-left: auto;
   margin-right: auto;
-}
-.outer-circle {
-  z-index: -1;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 300px;
-  width: 900px;
-  height: 900px;
-  background-color: #f4d4a5;
-  border: 5px solid #faead3;
-  border-radius: 100%;
-}
-.circle {
-  z-index: -1;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 300px;
-  width: 800px;
-  height: 800px;
-  background-color: #faead3;
-  border-radius: 100%;
+  & .outer-circle {
+    z-index: -1;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 300px;
+    width: 900px;
+    height: 900px;
+    background-color: #f4d4a5;
+    border: 5px solid #faead3;
+    border-radius: 100%;
+  }
+  & .inner-circle {
+    z-index: -1;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 300px;
+    width: 800px;
+    height: 800px;
+    background-color: #faead3;
+    border-radius: 100%;
+  }
 }
 .card-wrapper {
   font-family: 'Roboto', sans-serif;
   width: 599px;
   height: 377px;
-  margin-top: 50px;
+  margin-top: 70px;
   margin-left: auto;
   margin-right: auto;
   perspective: 1000px;
-}
-.sub {
-  position: absolute;
-  cursor: pointer;
-  top: 140%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 316.83px;
-  height: 82px;
-  border-radius: 15px;
-  overflow: hidden;
-  background-color: #59cf57;
-  border: none;
-  outline: none;
-  box-shadow: 0 9px #999;
-  &:focus-visible {
-    outline: 5px solid #52a1f6; border-radius: 15px;
-  }
-  & p {
-    font-size: 42px;
-    padding: 20px 30px;
-    background-color: #59cf57;
-    color: #faead3;
-    margin: 0;
-    display: block;
-  }
-  &:active {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px) translate(-50%, -50%);
-  }
-}
-#expiration-month {
-  margin-right: 5px;
-}
-.but {
-  transition: transform 0.4s linear;
-  position: absolute;
-  margin-top: -110px;
-  margin-left: 665px;
-  &:focus-visible {
-    outline: 5px solid #52a1f6; border-radius: 50%;
-  }
-  & i {
-    cursor: pointer;
-    background-color: #fe6479;
-    padding: 20px;
-    font-size: 22px;
-    color: #faead3;
-    border-radius: 100%;
-    &::before {
-      display: block;
-      width: 22px;
-      height: 22px;
-    }
-  }
-}
-.credit-card {
-  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-  position: relative;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  width: 100%;
-  height: 100%;
-  border-radius: 25px;
-  padding: 35px;
-  font-size: 24px;
-  color: white;
-  background-image: linear-gradient(to bottom right, rgb(85, 84, 84), black);
-  & .front-side {
-    position: absolute;
-    width: 529px;
-    height: 307px;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
-  & fieldset {
-    border: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-  }
-  & legend {
-    display: none;
-  }
-  & select {
-    color: white;
-    background-color: rgb(85, 84, 84);
-    padding: 2px;
-    border-radius: 5px;
+  & .credit-card {
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-    border: none;
-    &:focus {
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    padding: 35px;
+    font-size: 24px;
+    color: white;
+    background-image: linear-gradient(to bottom right, rgb(85, 84, 84), black);
+    & fieldset {
       border: none;
-      outline: 3px solid black;
-    }
-  }
-  & input {
-    user-select: all;
-    color: white;
-    background-color: rgb(85, 84, 84);
-    padding: 3px;
-    border-radius: 5px;
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-  }
-  & label {
-    visibility: hidden;
-    height: 0;
-    width: 0;
-    position: absolute;
-    top: -200vh;
-  }
-  & .bank-name {
-    & p {
+      display: flex;
+      padding: 0;
       margin: 0;
-      display: inline-block;
     }
-    &::after {
-      content: " | World's Bank";
+    & legend {
+      display: none;
     }
-  } 
-  & .chip-nfc {
-    margin-top: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  & .card-chip {
-    & img {
-      width: 70px;
-      vertical-align: middle;
-    }
-  }
-  & .card-nfc {
-    & img {
-      width: 35px;
-      vertical-align: middle;
-    }
-  }
-  & .card-number-fieldset {
-    justify-content: center;
-  }
-  & .card-number-inputs {
-    margin-top: 20px;
     & input {
-      font-size: 32px;
-      max-width: 115px;
-      margin-right: 15px;
-      text-align: center; 
-      &:last-of-type {
-        margin-right: 0;
+      user-select: all;
+      color: white;
+      background-color: rgb(85, 84, 84);
+      padding: 3px;
+      border-radius: 5px;
+      box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    }
+    & label {
+      visibility: hidden;
+      height: 0;
+      width: 0;
+      position: absolute;
+      top: -200vh;
+    }
+    & select {
+      color: white;
+      background-color: rgb(85, 84, 84);
+      padding: 2px;
+      border-radius: 5px;
+      box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+      border: none;
+      &:focus {
+        border: none;
+        outline: 3px solid white;
+      }
+    }
+    & .front-side {
+      position: absolute;
+      width: 529px;
+      height: 307px;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+    }
+    & .bank-name {
+      & p {
+        margin: 0;
+        display: inline-block;
+      }
+      &::after {
+        content: " | World's Bank";
+      }
+    } 
+    & .chip-nfc {
+      margin-top: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    & .card-chip {
+      & img {
+        width: 70px;
+        vertical-align: middle;
+      }
+    }
+    & .card-nfc {
+      & img {
+        width: 35px;
+        vertical-align: middle;
+      }
+    }
+    & .card-number-fieldset {
+      justify-content: center;
+    }
+    & .card-number-inputs {
+      margin-top: 20px;
+      & input {
+        font-size: 32px;
+        max-width: 115px;
+        margin-right: 15px;
+        text-align: center; 
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+    & .expiration-fieldset {
+      margin-top: 20px;
+      margin-left: 260px;
+      & select {
+        font-size: 22px;
+      }
+    }
+    & #expiration-month {
+      margin-right: 5px;
+    }
+    & .name-brand {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    & .name-form {
+      & input {
+        font-size: 22px;
+        width: 220px;
+        text-align: center; 
+      }
+    }
+    & .card-image {
+      height: 90px;
+      width: 90px;
+      margin-top: -29px;
+      display: flex;
+      & img {
+        align-self: center;
+      }
+    }
+    & .back-side {
+      transform: rotateY(180deg);
+      width: 529px;
+      height: 307px;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      position: absolute;
+    }
+    & .stripe {
+      margin-left: -35px;
+      width: 599px;
+      height: 70px;
+      background-color: black;
+    }
+    & .cvc-div {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      & input {
+        font-size: 32px;
+        max-width: 86px;
+        text-align: center; 
       }
     }
   }
-  & .expiration-fieldset {
-    margin-top: 20px;
-    margin-left: 260px;
-    & select {
-      font-size: 22px;
-    }
-  }
-  & .name-brand {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  & .name-form {
-    & input {
-      font-size: 22px;
-      width: 220px;
-      text-align: center; 
-    }
-  }
-  & .card-image {
-    height: 90px;
-    width: 90px;
-    margin-top: -29px;
-    display: flex;
-    & img {
-      align-self: center;
-    }
-  }
-  & .back-side {
-    transform: rotateY(180deg);
-    width: 529px;
-    height: 307px;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
+  & .rotate-button {
+    transition: transform 0.4s linear;
     position: absolute;
+    &:focus-visible {
+      outline: 5px solid #52a1f6; border-radius: 50%;
+    }
+    & i {
+      cursor: pointer;
+      background-color: #fe6479;
+      padding: 20px;
+      font-size: 22px;
+      color: #faead3;
+      border-radius: 100%;
+      &::before {
+        display: block;
+        width: 22px;
+        height: 22px;
+      }
+    }
   }
-  & .stripe {
-    margin-left: -35px;
-    width: 599px;
-    height: 70px;
-    background-color: black;
-  }
-  & .cvc-div {
+  .submit-button {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    & input {
-      font-size: 32px;
-      max-width: 86px;
-      text-align: center; 
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    width: 316.83px;
+    height: 82px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #59cf57;
+    border: none;
+    outline: none;
+    &:focus-visible {
+      outline: 5px solid #52a1f6; border-radius: 15px;
+    }
+    & p {
+      font-size: 42px;
+      padding: 20px 30px;
+      background-color: #59cf57;
+      color: #faead3;
+      margin: 0;
+      display: block;
     }
   }
 }
+
+

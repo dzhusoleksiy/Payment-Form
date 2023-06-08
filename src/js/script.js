@@ -1,5 +1,7 @@
 const expirationSelect = document.querySelector("[data-expiration-year]")
-const logo = document.querySelector("[data-logo]")
+const nameInput = document.getElementById("name")
+const cardForm = document.getElementById("credit-card")
+const rotateButton = document.getElementById("rotate-button")
 
 const currentYear = new Date().getFullYear()
 for (let i = currentYear; i < currentYear + 8; i++) {
@@ -18,6 +20,7 @@ document.addEventListener("keydown", e => {
     case "ArrowLeft": {
       if (input.selectionStart === 0 && input.selectionEnd === 0) {
         const prev = input.previousElementSibling
+        if (!prev) return
         prev.focus()
         prev.selectionStart = prev.value.length - 1
         prev.selectionEnd = prev.value.length - 1
@@ -26,6 +29,8 @@ document.addEventListener("keydown", e => {
       break
     }
     case "ArrowRight": {
+      const nex = input.nextElementSibling
+      if (!nex) return
       if (
         input.selectionStart === input.value.length &&
         input.selectionEnd === input.value.length
@@ -96,9 +101,9 @@ function onInputChange(input, newValue) {
     .querySelector("input").value
 
   if (firstFour.startsWith("4")) {
-    document.getElementById(`card-logo`).src = "i/svg/visa.svg"
+    document.getElementById("card-logo").src = "i/svg/visa.svg"
   } else if (firstFour.startsWith("5")) {
-    document.getElementById(`card-logo`).src = "i/svg/mastercard.svg"
+    document.getElementById("card-logo").src = "i/svg/mastercard.svg"
   }
 }
 
@@ -135,50 +140,48 @@ function isConnectedInput(input) {
 }
 
 addEventListener("load", () => {
-  document.getElementById(`first-of-con`).focus();
+  document.getElementById("first-of-con").focus();
 });
 
-document.getElementById(`name`).addEventListener("keydown", e => {
+document.getElementById("cvc").addEventListener("keydown", e => {
+  const key = e.key
+  if (e.ctrlKey || e.altKey) return
+  if (key.length > 1) return
+  if (key.match(/^[^0-9]$/)) return e.preventDefault()
+})
+
+nameInput.addEventListener("keydown", e => {
   const key = e.key
 
   switch (key) {
     case "Tab": {
-      testswap();
+      sideRotation();
     }
   }
 })
 
-const card = document.querySelector('.credit-card')
-const but = document.getElementById(`but`)
-const sub = document.getElementById(`sub`)
-function testswap () {
-  if (!card.style.transform || card.style.transform == 'rotateY(0deg)') {
-    card.style.transform = 'rotateY(-180deg)';
-    but.style.transform = 'rotate(-180deg)';
+function sideRotation() {
+  if (!cardForm.style.transform || cardForm.style.transform == "rotateY(0deg)") {
+    cardForm.style.transform = "rotateY(-180deg)";
+    rotateButton.style.transform = "rotate(-180deg)";
   }
   else {
-    card.style.transform = 'rotateY(0deg)';
-    but.style.transform = 'rotate(0)';
+    cardForm.style.transform = "rotateY(0deg)";
+    rotateButton.style.transform = "rotate(0)";
   } 
 }
-but.onclick = testswap;
+rotateButton.onclick = sideRotation;
 
-function testinp () {
-  if (
-    document.getElementById(`first-of-con`).value.length == 4 &&
-    document.getElementById(`second-of-con`).value.length == 4 &&
-    document.getElementById(`third-of-con`).value.length == 4 &&
-    document.getElementById(`fourth-of-con`).value.length == 4 &&
-    document.getElementById(`name`).value.length > 0
-  ) {
-    if(document.getElementById(`cvc`).value.length !== 3) {
-      card.style.transform = 'rotateY(-180deg)';
-      but.style.transform = 'rotate(-180deg)';
+function toRequired() {
+  const cardInputs = Array.from(document.querySelector("#connected-inputs").querySelectorAll("input"))
+  if ((cardInputs.every(input => input.value.length == 4)) && nameInput.value.length) {
+    if(document.getElementById("cvc").value.length !== 3) {
+      cardForm.style.transform = "rotateY(-180deg)";
+      rotateButton.style.transform = "rotate(-180deg)";
     }
   } else {
-    card.style.transform = 'rotateY(0deg)';
-    but.style.transform = 'rotate(0)';
+    cardForm.style.transform = "rotateY(0deg)";
+    rotateButton.style.transform = "rotate(0)";
   }
 }
-
-sub.onclick = testinp;
+document.getElementById("submit-button").onclick = toRequired;

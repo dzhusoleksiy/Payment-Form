@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>title</title>
+    <title>Payment Form</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -11,23 +11,23 @@
   <body>
     <div class="wrapper">
       <div class="outer-circle"></div>
-      <div class="circle"></div>
+      <div class="inner-circle"></div>
       <div class="card-wrapper"> 
         <form class="credit-card" id="credit-card" autocomplete="off">
           <div class="front-side">
             <div class="bank-name"><p>multibank</p></div>
             <div class="chip-nfc">
               <div class="card-chip">
-                <img data-logo src="i/chip.png" class="logo">
+                <img src="i/chip.png" class="logo">
               </div>
               <div class="card-nfc">
-                <img data-logo src="i/svg/nfc.svg" class="logo">
+                <img src="i/svg/nfc.svg" class="logo">
               </div>
             </div>
             <fieldset class="card-number-fieldset">
               <legend>Card Number</legend>
-              <label for="card-number">Card Number</label>
-              <div data-connected-inputs class="card-number-inputs horizontal-input-row">
+              <label for="card-number-inputs">Card Number</label>
+              <div data-connected-inputs id="connected-inputs" class="card-number-inputs">
                 <input type="tel" maxlength="4" aria-label="First 4 Digits of Credit Card" id="first-of-con" required pattern="[0-9]{4}"/>
                 <input type="tel" maxlength="4" aria-label="Second 4 Digits of Credit Card" id="second-of-con" required pattern="[0-9]{4}" />
                 <input type="tel" maxlength="4" aria-label="Third 4 Digits of Credit Card" id="third-of-con" required pattern="[0-9]{4}" />
@@ -37,7 +37,7 @@
             <fieldset class="expiration-fieldset">
               <legend>Expiration</legend>
               <label for="expiration-month">Expiration</label>
-              <div class="horizontal-input-row">
+              <div>
                 <select id="expiration-month" aria-label="Expiration Month" required>
                   <option>01</option>
                   <option>02</option>
@@ -58,7 +58,7 @@
             <div class="name-brand">
               <div class="name-form">
                 <label for="name">Name</label>
-                <input type="text" id="name" required>
+                <input type="text" id="name" required autocomplete="nope">
               </div>
               <div class="card-image">
                 <img data-logo id="card-logo" class="logo">
@@ -66,15 +66,14 @@
             </div>
           </div>
           <div class="back-side">
-            <div class="stripe"></div>
             <div class="cvc-div">
               <label  for="cvc">CVC</label>
               <input id="cvc" class="cvc-input" type="tel" maxlength="3" required pattern="[0-9]{3}"/>
             </div>
           </div>
         </form>
-        <button id="but" class="but" type="button"><i class="fa-solid fa-arrow-right"></i></button>
-        <button id="sub" class="sub" form="credit-card" type="submit"><p>Pay Your Bills</p></button>
+        <button id="rotate-button" class="rotate-button" type="button"><i class="fa-solid fa-arrow-right"></i></button>
+        <button id="submit-button" class="submit-button" form="credit-card" type="submit"><p>Pay Your Bills</p></button>
       </div>
     </div>
     <script src="js/script.js"></script>
