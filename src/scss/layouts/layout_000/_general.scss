@@ -105,6 +105,7 @@ body {
       }
       &::after {
         content: " | World's Bank";
+        color: rgb(105, 104, 104);
       }
     } 
     & .chip-nfc {
