@@ -199,6 +199,8 @@ body {
   & .rotate-button {
     transition: transform 0.4s linear;
     position: absolute;
+    margin-top: -130px;
+    margin-left: 665px;
     &:focus-visible {
       outline: 5px solid #52a1f6; border-radius: 50%;
     }
@@ -227,6 +229,9 @@ body {
     background-color: #59cf57;
     border: none;
     outline: none;
+    top: 137%;
+    left: 50%;
+    box-shadow: 0 9px #999;
     &:focus-visible {
       outline: 5px solid #52a1f6; border-radius: 15px;
     }
@@ -237,6 +242,10 @@ body {
       color: #faead3;
       margin: 0;
       display: block;
+    }
+    &:active {
+      box-shadow: 0 5px #666;
+      transform: translateY(4px) translate(-50%, -50%);
     }
   }
 }
